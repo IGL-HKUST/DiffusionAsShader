@@ -576,7 +576,7 @@ class DiffusionAsShaderPipeline:
         return tracking_path, tracking_video
 
     
-    def apply_tracking(self, video_tensor, fps=8, tracking_tensor=None, img_cond_tensor=None, prompt=None, checkpoint_path=None):
+    def apply_tracking(self, video_tensor, fps=8, tracking_tensor=None, img_cond_tensor=None, prompt=None, checkpoint_path=None, num_inference_steps=50):
         """Generate final video with motion transfer
         
         Args:
@@ -601,7 +601,7 @@ class DiffusionAsShaderPipeline:
             tracking_tensor=tracking_tensor,
             image_tensor=img_cond_tensor,
             output_path=final_output,
-            num_inference_steps=25,
+            num_inference_steps=50,
             guidance_scale=6.0,
             dtype=torch.bfloat16,
             fps=self.fps

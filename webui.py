@@ -388,13 +388,13 @@ with gr.Blocks(title="Diffusion as Shader") as demo:
                     
                         cc_trans_note = gr.Markdown("""
                         **Translation Notes:**
-                        - Positive X: Move right, Negative X: Move left
+                        - Positive X: Move left, Negative X: Move right
                         - Positive Y: Move up, Negative Y: Move down
                         - Positive Z: Zoom out, Negative Z: Zoom in
                         """)
 
                         with gr.Row():
-                            cc_trans_x = gr.Slider(minimum=-1.0, maximum=1.0, value=0.0, step=0.05, label="X-axis left- right+")
+                            cc_trans_x = gr.Slider(minimum=-1.0, maximum=1.0, value=0.0, step=0.05, label="X-axis right- left+")
                             cc_trans_y = gr.Slider(minimum=-1.0, maximum=1.0, value=0.0, step=0.05, label="Y-axis up- down+")
                             cc_trans_z = gr.Slider(minimum=-1.0, maximum=1.0, value=0.0, step=0.05, label="Z-axis zoom_out- zoom_in+")
                         

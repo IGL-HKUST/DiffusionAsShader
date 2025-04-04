@@ -105,7 +105,7 @@ python demo.py \
   <td><img src="assets/videos/panup+out.gif" alt="Pans Up + Zoom out"></td>
 </tr>
 <tr>
-  <th>Pans Right</th>
+  <th>Pans Left + Yaw Left</th>
   <th>Static</th>
   <th>Zoom out</th>
 </tr>
@@ -131,11 +131,11 @@ python demo.py \
 
 Here are some tips for camera motion:
 - trans: translation motion, the camera will move in the direction of the vector (dx, dy, dz) with range [-1, 1]
-  - Positive X: Move right, Negative X: Move left
+  - Positive X: Move left, Negative X: Move right
   - Positive Y: Move down, Negative Y: Move up
   - Positive Z: Zoom in, Negative Z: Zoom out
-  - e.g., 'trans -0.1 -0.1 -0.1' moving left, down and zoom in
-  - e.g., 'trans -0.1 0.0 0.0 5 45' moving left 0.1 from frame 5 to 45
+  - e.g., 'trans -0.1 -0.1 -0.1' moving right, down and zoom in
+  - e.g., 'trans -0.1 0.0 0.0 5 45' moving right 0.1 from frame 5 to 45
 - rot: rotation motion, the camera will rotate around the axis (x, y, z) by the angle
   - X-axis rotation: positive X: pitch down, negative X: pitch up
   - Y-axis rotation: positive Y: yaw left, negative Y: yaw right
@@ -151,7 +151,7 @@ Multiple transformations can be combined using semicolon (;) as separator:
   This will:
   1. Zoom in (z-0.5) from frame 0 to 30
   2. Pitch up (rotate -25 degrees around x-axis) from frame 0 to 30
-  3. Move left (x-0.1) from frame 30 to 48
+  3. Move right (x-0.1) from frame 30 to 48
 
 Notes:
 - Frame range is 0-48 (49 frames in total)
@@ -160,6 +160,20 @@ Notes:
 - For combined transformations, they are applied in sequence
 
 #### 3. Object Manipulation
+
+<table border="1">
+<tr>
+  <th>Move Left</th>
+  <th>Move Up</th>
+  <th>Rotate</th>
+</tr>
+<tr>
+  <td><img src="assets/videos/move left.gif" alt="Move Left"></td>
+  <td><img src="assets/videos/move up.gif" alt="Move Right"></td>
+  <td><img src="assets/videos/rotate.gif" alt="Rotate"></td>
+</tr>
+</table>
+
 We provide several template object manipulation types, you can choose one of them. In practice, we find that providing a description of the object motion in prompt will get better results.
 ```python
 python demo.py \

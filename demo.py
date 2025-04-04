@@ -103,6 +103,7 @@ if __name__ == "__main__":
     parser.add_argument('--checkpoint_path', type=str, default="EXCAI/Diffusion-As-Shader", help='Path to model checkpoint')
     parser.add_argument('--depth_path', type=str, default=None, help='Path to depth image')
     parser.add_argument('--tracking_path', type=str, default=None, help='Path to tracking video, if provided, camera motion and object manipulation will not be applied')
+    parser.add_argument('--num_inference_steps', type=int, default=50, help='Number of inference steps')
     parser.add_argument('--repaint', type=str, default=None, 
                        help='Path to repainted image, or "true" to perform repainting, if not provided use original frame')
     parser.add_argument('--camera_motion', type=str, default=None, 
@@ -273,5 +274,6 @@ if __name__ == "__main__":
         tracking_tensor=tracking_tensor,
         img_cond_tensor=repaint_img_tensor,
         prompt=args.prompt,
-        checkpoint_path=args.checkpoint_path
+        checkpoint_path=args.checkpoint_path,
+        num_inference_steps=args.num_inference_steps
     )
