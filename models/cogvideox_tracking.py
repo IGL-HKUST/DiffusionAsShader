@@ -99,7 +99,7 @@ class CogVideoXTransformer3DModelTracking(CogVideoXTransformer3DModel, ModelMixi
 
         # Create linear layers for combining hidden states and tracking maps
         self.combine_linears = nn.ModuleList(
-            [nn.Linear(inner_dim, inner_dim) for _ in range(num_tracking_blocks)]
+            [nn.Linear(inner_dim, inner_dim, device="cpu") for _ in range(num_tracking_blocks)]
         )
 
         # Initialize weights of combine_linears to zero
@@ -120,13 +120,13 @@ class CogVideoXTransformer3DModelTracking(CogVideoXTransformer3DModel, ModelMixi
                     attention_bias=self.config.attention_bias,
                     norm_elementwise_affine=self.config.norm_elementwise_affine,
                     norm_eps=self.config.norm_eps,
-                )
+                ).to("cpu")
                 for _ in range(num_tracking_blocks)
             ]
         )
 
         # For initial combination of hidden states and tracking maps
-        self.initial_combine_linear = nn.Linear(inner_dim, inner_dim)
+        self.initial_combine_linear = nn.Linear(inner_dim, inner_dim, device="cpu")
         self.initial_combine_linear.weight.data.zero_()
         self.initial_combine_linear.bias.data.zero_()
 
