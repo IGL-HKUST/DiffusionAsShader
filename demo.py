@@ -85,9 +85,12 @@ def load_media(media_path, max_frames=49, transform=None):
         frames = [image]
         fps = 8  # Default fps for images
         
-    # Duplicate frame to max_frames
-    while len(frames) < max_frames:
-        frames.append(frames[0].copy())
+        # Duplicate frame to max_frames
+        while len(frames) < max_frames:
+            frames.append(frames[0].copy())
+
+    if len(frames) > max_frames:
+        frames = frames[:max_frames]
     
     # Convert frames to tensor
     video_tensor = torch.stack([transform(frame) for frame in frames])
