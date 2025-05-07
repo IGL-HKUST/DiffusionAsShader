@@ -120,7 +120,7 @@ class CogVideoXTransformer3DModelTracking(CogVideoXTransformer3DModel, ModelMixi
                     attention_bias=self.config.attention_bias,
                     norm_elementwise_affine=self.config.norm_elementwise_affine,
                     norm_eps=self.config.norm_eps,
-                ).to("cpu")
+                ).to_empty(device="cpu")
                 for _ in range(num_tracking_blocks)
             ]
         )
