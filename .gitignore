@@ -197,3 +197,4 @@ slurm-*.out
 
 data/
 tmp/
+models/Diffusion_Transformer/*
