@@ -8,7 +8,7 @@ einops==0.7.0
 timm==0.6.7
 scikit-image==0.22.0
 scikit-learn==1.4.1.post1
-cupy-cuda11x
+cupy-cuda12x
 accelerate
 yt-dlp
 pandas

@@ -601,7 +601,7 @@ class DiffusionAsShaderPipeline:
             tracking_tensor=tracking_tensor,
             image_tensor=img_cond_tensor,
             output_path=final_output,
-            num_inference_steps=50,
+            num_inference_steps=num_inference_steps,
             guidance_scale=6.0,
             dtype=torch.bfloat16,
             fps=self.fps

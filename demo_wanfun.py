@@ -17,7 +17,7 @@ import torchvision.transforms as transforms
 from moviepy.editor import VideoFileClip
 from diffusers.utils import load_image, load_video
 
-from models.pipelines import DiffusionAsShaderPipeline, FirstFrameRepainter, CameraMotionGenerator, ObjectMotionGenerator
+from models.pipelines_wanfun import DiffusionAsShaderPipeline, FirstFrameRepainter, CameraMotionGenerator, ObjectMotionGenerator
 from submodules.MoGe.moge.model.v1 import MoGeModel
 from submodules.vggt.vggt.utils.pose_enc import pose_encoding_to_extri_intri
 from submodules.vggt.vggt.models.vggt import VGGT
