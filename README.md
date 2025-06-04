@@ -8,6 +8,17 @@
 
 ![teaser](assets/teaser.gif)
 
+## NEWS:
+- Jun 5, 2025: We released our [script](assets/dataset.md) and Blender project for creating **synthetic datasets**.
+
+- Jun 2, 2025: We added inference code based on `Wan2.1Fun 1.3B` fine-tuning to the `Wanfun` branch.
+
+- Apr 2, 2025: Added functionality for complex and precise camera control for videos, based on `VGGT`. The `--override_extrinsics` hyperparameter can be adjusted to append or override camera motion in videos.
+
+- Apr 1, 2025: Added support for `cotracker`.
+
+- Feb 17, 2025: We uploaded a validation dataset to [Google Drive](https://drive.google.com/file/d/1pVB_2AEoz1v4vXWe6-pdDAEQdmlGEIci/view?usp=sharing), containing 4 tasks.
+
 ## Quickstart
 
 ### Create environment
@@ -80,6 +91,33 @@ python webui.py --gpu <gpu_id>
 Or you can run these tasks one by one as follows.
 
 #### 1. Motion Transfer 
+
+<table border="1">
+<tr>
+  <th>Original</th>
+  <th>Object Replacement</th>
+  <th>Style Transfer</th>
+</tr>
+<tr>
+  <td><img src="assets/videos/rocket1.gif" alt="Original"></td>
+  <td><img src="assets/videos/rocket2.gif" alt="Object Replacement"></td>
+  <td><img src="assets/videos/rocket3.gif" alt="Style Transfer"></td>
+</tr>
+<tr>
+  <th>Original</th>
+  <th>Character Replacement 1</th>
+  <th>Character Replacement 2</th>
+</tr>
+<tr>
+  <td><img src="assets/videos/roof_girl.gif" alt="Original"></td>
+  <td><img src="assets/videos/roof_anime.gif" alt="Character Replacement 1"></td>
+  <td><img src="assets/videos/roof_robot.gif" alt="Character Replacement 2"></td>
+</tr>
+</table>
+(The above results must be generated with the assistance of FLUX.1 Kontext.)
+
+---
+
 ```python
 python demo.py \
     --prompt <"prompt text"> \ # prompt text

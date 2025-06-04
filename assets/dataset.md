@@ -87,4 +87,50 @@ dataset
     ├── ...
 ```
 
+### Synthesizing Training Datasets
 
+We provide the script `scripts/render_with_random_bg.py` for synthesizing training datasets. However, due to copyright restrictions, we are unfortunately unable to provide the scenes, models, and backgrounds (skyboxes) used for synthesizing the training data. Therefore, we recommend that you collect this data from relevant channels through your own means, such as: [mixamo](https://www.mixamo.com/), [polyhaven](https://polyhaven.com/hdris)...
+
+Once you have sufficient assets, please organize your files as follows:
+
+```
+synthesis_workspace
+├── avatar.blend
+├── render_with_random_bg.py
+├── blender-4.3.2-linux-x64
+    ├── blender
+    ├── ...
+├── raw
+    ├── skybox
+        ├── skybox image 1.png
+        ├── ...
+    ├── character1
+        ├── motion
+            ├── motion1.fbx
+            ├── motion2.fbx
+            ├── ...
+        ├── character1.fbx
+    ├── character2
+        ├── motion
+            ├── motion1.fbx
+            ├── motion2.fbx
+            ├── ...
+        ├── character2.fbx
+    ├── ...
+```
+
+synthesis_workspace: You need to create a new dedicated folder to store assets, Blender, and scripts.
+
+avatar.blend: Please move `scripts/avatar.blend` to the synthesis_workspace.
+
+render_with_random_bg.py: Please move `scripts/render_with_random_bg.py` to the synthesis_workspace.
+
+We recommend using a specific version of Blender, namely `blender-4.3.2-linux-x64`. Please download and extract it to the synthesis_workspace.
+
+raw: You need to create a new folder named raw to store character models and animations. These models and animations need to be saved separately in FBX format. All animation FBX files should be placed in the `CHARATER NAME/motion/` folder, and the corresponding character model should be placed in the `CHARATER NAME/` folder.
+
+After completing all the above steps, execute the following code to create the synthetic dataset. The generated dataset will appear in the base_path directory.
+
+```bash
+path-to-blender/blender-4.3.2-linux-x64/blender -b path-to-blender-prj/avatar.blend -P path-to-script/render_with_random_bg.py -- --base_path path-to-workspace-folder
+```
