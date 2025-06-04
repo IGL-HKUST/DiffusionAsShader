@@ -14,7 +14,7 @@
 1. Clone the repository and create conda environment: 
 
     ```
-    git clone git@github.com:IGL-HKUST/DiffusionAsShader.git
+    git clone https://github.com/IGL-HKUST/DiffusionAsShader.git
     conda create -n das python=3.10
     conda activate das
     ```
@@ -45,8 +45,8 @@ pip install git+https://github.com/asomoza/image_gen_aux.git
     git clone https://github.com/facebookresearch/vggt.git submodules/vggt
     ```
 
-4. Manually download these checkpoints:
-   - SpatialTracker checkpoint: [Google Drive](https://drive.google.com/drive/folders/1UtzUJLPhJdUg2XvemXXz1oe6KUQKVjsZ) and move it to `checkpoints/`.
+4. Manually download these checkpoints to `checkpoints/`:
+   - SpatialTracker checkpoint: [Google Drive](https://drive.google.com/drive/folders/1UtzUJLPhJdUg2XvemXXz1oe6KUQKVjsZ).
    - Our *Diffusion as Shader* checkpoint: https://huggingface.co/EXCAI/Diffusion-As-Shader
 
 <!-- 5. Manually download the ZoeDepth checkpoints (dpt_beit_large_384.pt, ZoeD_M12_K.pt, ZoeD_M12_NK.pt) to `models/monoD/zoeDepth/ckpts/`. For more information, refer to [this issue](https://github.com/henry123-boy/SpaTracker/issues/20). -->
