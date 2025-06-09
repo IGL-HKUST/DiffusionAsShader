@@ -52,7 +52,7 @@ def load_media(media_path, max_frames=49, transform=None):
         # Case 1: Video longer than 6 seconds, sample first 6 seconds + 1 frame
         if duration > 6.0:
             frames = load_video(media_path)
-            fps = max_frames-1 / 6.0
+            fps = (max_frames-1) / 6.0
         # Cases 2 and 3: Video shorter than 6 seconds
         else:
             # Load all frames
